@@ -43,8 +43,17 @@ function makeTreeFoliage(foliageHeight) {
 }
 
 function makeTreeTrunk(foliageHeight) {
-  return ["____#____", "____#____"];
+  let max_width = findLineWidth(foliageHeight)
+  let half_underscore_number = 0.5 * (max_width - 1)
+  let half_underscore_string = ('_').repeat(half_underscore_number)
+  console.log(`${half_underscore_string}'#'${half_underscore_string}`);
 }
+
+//make tree trunk
+// define width of segement
+// define how many #
+//define how many _
+//place # and _ in correct position
 
 // exports the functions so that ./xmas-tree.test.js can import them
 module.exports = {
