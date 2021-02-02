@@ -11,6 +11,7 @@ function xmasTree(foliageHeight) {
   // 2. make the tree trunk
   const trunk = makeTreeTrunk(foliageHeight);
   // 3. group them together
+  console.log(foliage.concat(trunk))
   return foliage.concat(trunk);
 }
 
@@ -37,25 +38,21 @@ function makeTreeFoliage(foliageHeight) {
     let half_underscore_string = ('_').repeat(half_underscore_number)
     foliage_array.push(`${half_underscore_string}${hashtag_string}${half_underscore_string}`);
   }
-  console.log(foliage_array)
   return foliage_array
 }
-
+//make tree trunk
+// define width of segement
+// define how many #
+//define how many _
+//place # and _ in correct position
 function makeTreeTrunk(foliageHeight) {
   let max_width = findLineWidth(foliageHeight)
   let half_underscore_number = 0.5 * (max_width - 1)
   let half_underscore_string = ('_').repeat(half_underscore_number)
   let half_trunk = `${half_underscore_string}#${half_underscore_string}`
   let full_trunk = [half_trunk, half_trunk]
-  console.log(full_trunk)
   return full_trunk;
 }
-
-//make tree trunk
-// define width of segement
-// define how many #
-//define how many _
-//place # and _ in correct position
 
 // exports the functions so that ./xmas-tree.test.js can import them
 module.exports = {
@@ -66,5 +63,4 @@ module.exports = {
   makeTreeTrunk,
 };
 
-makeTreeFoliage(3)
-makeTreeTrunk(3)
+xmasTree(3)
