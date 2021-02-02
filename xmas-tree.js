@@ -14,13 +14,12 @@ function xmasTree(foliageHeight) {
   return foliage.concat(trunk);
 }
 
-function findLineWidth(foliageHeight) { //
-  console.log((2 * foliageHeight) - 1)
+function findLineWidth(foliageHeight) {
   let correct_width = ((2 * foliageHeight) - 1)
   return correct_width
 }
 
-function makeFoliageSegment(foliageHeight, segmentLevel) { }
+//function makeFoliageSegment(foliageHeight, segmentLevel) { }
 
 // calculate max width W, given Height
 // for each required level (L = 1 to Height)
@@ -29,17 +28,17 @@ function makeFoliageSegment(foliageHeight, segmentLevel) { }
 //     compose string with # and _
 //     print the composed string
 function makeTreeFoliage(foliageHeight) {
-  let max_width = ((2 * foliageHeight) - 1)
-  console.log(max_width)
+  const max_width = findLineWidth(foliageHeight)
+  let foliage_array = []
   for (let segmentLevel = 1; segmentLevel <= foliageHeight; segmentLevel++) {
     let hashtag_number = (2 * segmentLevel) - 1
-    console.log(segmentLevel)
-    console.log(hashtag_number)
-    let hashtag_string = ('#').repeat(hashtag_number)  
+    let hashtag_string = ('#').repeat(hashtag_number)
     let half_underscore_number = 0.5 * (max_width - hashtag_number)
-    let half_underscore_string = ('_').repeat(half_underscore_number) //number of underscores on each level
-    console.log(`${half_underscore_string}${hashtag_string}${half_underscore_string}`);
+    let half_underscore_string = ('_').repeat(half_underscore_number)
+    foliage_array.push(`${half_underscore_string}${hashtag_string}${half_underscore_string}`);
   }
+  console.log(foliage_array)
+  return foliage_array
 }
 
 function makeTreeTrunk(foliageHeight) {
@@ -50,7 +49,7 @@ function makeTreeTrunk(foliageHeight) {
 module.exports = {
   xmasTree,
   findLineWidth,
-  makeFoliageSegment,
+  //makeFoliageSegment,
   makeTreeFoliage,
   makeTreeTrunk,
 };
